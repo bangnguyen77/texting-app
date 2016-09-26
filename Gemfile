@@ -48,6 +48,8 @@ group :development, :test do
   gem 'poltergeist'
   gem 'database_cleaner'
   gem 'dotenv-rails'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :development do
