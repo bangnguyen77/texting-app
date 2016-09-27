@@ -1,5 +1,5 @@
 <ul>
   <% @contacts.each do |contact| %>
-    <li><%= link_to contact.name, new_message_path %>: <%= contact.phone %></li>
+    <li><%= link_to contact.name, new_message_path %>: <%= contact.phone %> <%= link_to "Delete", contact_path(contact), :method => "delete", data: {confirm: "Are you sure?"} %></li>
 <% end %>
 </ul>
