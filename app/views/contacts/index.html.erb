@@ -1,5 +1,5 @@
 <h1>All Contacts</h1>
-<%= link_to "Add a contact", new_contact_path %>
+<%= link_to "Add a contact", new_contact_path, id: "new_contact_link", remote: true %>
 
 <ul>
   <% @contacts.each do |contact| %>

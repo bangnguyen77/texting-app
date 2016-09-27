@@ -11,7 +11,10 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     if @contact.save
       flash[:notice] = "Your contact was saved!"
-      redirect_to contacts_path
+      respond_to do |format|
+        format.html { redirect_to contacts_path }
+        format.js
+      end
     else
       render 'new'
     end
