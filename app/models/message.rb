@@ -9,9 +9,9 @@ class Message < ActiveRecord::Base
         JSON.parse(to).each do |recipient|
           response = RestClient::Request.new(
           :method => :post,
-          :url => 'https://api.twilio.com/2010-04-01/Accounts/AC39a7a985f195db512a88b93ca2884057/Messages.json',
-          :user => 'AC39a7a985f195db512a88b93ca2884057',
-          :password => 'c007b6123d962dd539bcbdab8790ef3b',
+          :url => "https://api.twilio.com/2010-04-01/Accounts/#{ENV['TWILIO_ACCOUNT_SID']}/Messages.json",
+          :user => ENV['TWILIO_ACCOUNT_SID'],
+          :password => ENV['TWILIO_AUTH_TOKEN'],
           :payload => { :Body => body,
                         :From => from,
                         :To => recipient}
