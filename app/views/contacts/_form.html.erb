@@ -7,7 +7,7 @@
   </ul>
 <% end %>
 
-<%= form_for @contact do |f| %>
+<%= form_for @contact, remote: true do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
   <%= f.label :phone %>

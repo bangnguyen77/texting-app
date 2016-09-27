@@ -1,0 +1,26 @@
+<% if @message.errors.any? %>
+  <p>Something went wrong: </p>
+  <ul>
+    <% @message.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+
+<%= form_for @message, remote: true do |f| %>
+  <%= f.collection_check_boxes :to, Contact.all, :phone, :name, :include_hidden => false do |b| %>
+    <div class="collection-check-box">
+      <%= b.check_box %>
+      <%= b.label %>
+    </div>
+  <% end %>
+
+  <%= f.label :from %>
+  <%= f.text_field :from %>
+  <%= f.label :body %>
+  <%= f.text_field :body %>
+
+  <%= f.submit "Create" %>
+<% end %>

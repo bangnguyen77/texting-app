@@ -1,0 +1,9 @@
+<ul>
+  <% @messages.each do |message| %>
+  <li>
+    <p>From: <%= message.from %></p>
+    <p>To: <%= message.to %></p>
+    <p>Message:<%= link_to message.body, message_path(message) %></p>
+  </li>
+  <% end %>
+</ul>

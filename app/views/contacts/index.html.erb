@@ -1,11 +1,9 @@
 <h1>All Contacts</h1>
 <%= link_to "Add a contact", new_contact_path, id: "new_contact_link", remote: true %>
 
-<ul>
-  <% @contacts.each do |contact| %>
-    <li><%= link_to contact.name, new_message_path %>: <%= contact.phone %></li>
-<% end %>
-</ul>
+<div id="create-contact">
+  <%= render 'contact' %>
+</div>
 
 <br>
-<%= link_to "Add a message", new_message_path %>
+<%= link_to "See all messages", messages_path %>

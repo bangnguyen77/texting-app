@@ -8,6 +8,7 @@ class ContactsController < ApplicationController
   end
 
   def create
+    @contacts = Contact.all
     @contact = Contact.new(contact_params)
     if @contact.save
       flash[:notice] = "Your contact was saved!"
