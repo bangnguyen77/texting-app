@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.twilio.com/2010-04-01/Accounts/<twilio account sid>/Messages.json
     body:
       encoding: US-ASCII
-      string: Body=Something&From=503222&To=503-000-0000
+      string: Body=Test+message&From=8562830298&To=4843782551
     headers:
       Accept:
       - "*/*"
@@ -14,7 +14,7 @@ http_interactions:
       User-Agent:
       - rest-client/2.0.0 (darwin15.0.0 x86_64) ruby/2.2.3p173
       Content-Length:
-      - '42'
+      - '47'
       Content-Type:
       - application/x-www-form-urlencoded
       Host:
@@ -40,24 +40,84 @@ http_interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 27 Sep 2016 21:36:35 GMT
+      - Tue, 27 Sep 2016 23:30:04 GMT
       Twilio-Request-Duration:
-      - '0.060'
+      - '0.087'
       Twilio-Request-Id:
-      - RQ56e5e1ebf7d8497ba6eb471c1cec33ed
+      - RQ136670be77674aacb11b2493208c67b1
       X-Powered-By:
       - AT-5000
       X-Shenanigans:
       - none
       Content-Length:
-      - '159'
+      - '197'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"code": 21211, "message": "The ''To'' number 503-000-0000 is not a
-        valid phone number.", "more_info": "https://www.twilio.com/docs/errors/21211",
+      string: '{"code": 21212, "message": "The ''From'' number 8562830298 is not a
+        valid phone number, shortcode, or alphanumeric sender ID.", "more_info": "https://www.twilio.com/docs/errors/21212",
         "status": 400}'
     http_version: 
-  recorded_at: Tue, 27 Sep 2016 21:36:35 GMT
+  recorded_at: Tue, 27 Sep 2016 23:30:04 GMT
+- request:
+    method: post
+    uri: https://api.twilio.com/2010-04-01/Accounts/<twilio account sid>/Messages.json
+    body:
+      encoding: US-ASCII
+      string: Body=Test+message&From=8562830298&To=%5B%224843782551%22%5D
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (darwin15.0.0 x86_64) ruby/2.2.3p173
+      Content-Length:
+      - '59'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.twilio.com
+      Authorization:
+      - Basic QUMzOWE3YTk4NWYxOTVkYjUxMmE4OGI5M2NhMjg4NDA1NzpjMDA3YjYxMjNkOTYyZGQ1MzliY2JkYWI4NzkwZWYzYg==
+  response:
+    status:
+      code: 400
+      message: BAD REQUEST
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match,
+        If-Unmodified-Since
+      Access-Control-Allow-Methods:
+      - GET, POST, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - ETag
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 27 Sep 2016 23:30:05 GMT
+      Twilio-Request-Duration:
+      - '0.072'
+      Twilio-Request-Id:
+      - RQb941da8a005f4af886ca6e8e0ff4f344
+      X-Powered-By:
+      - AT-5000
+      X-Shenanigans:
+      - none
+      Content-Length:
+      - '197'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"code": 21212, "message": "The ''From'' number 8562830298 is not a
+        valid phone number, shortcode, or alphanumeric sender ID.", "more_info": "https://www.twilio.com/docs/errors/21212",
+        "status": 400}'
+    http_version: 
+  recorded_at: Tue, 27 Sep 2016 23:30:05 GMT
 recorded_with: VCR 3.0.3

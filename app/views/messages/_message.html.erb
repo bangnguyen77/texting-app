@@ -4,7 +4,7 @@
     <p>From: <%= message.from %></p>
     <p>To: <%= message.to %></p>
     <p>Message:<%= link_to message.body, message_path(message) %></p>
-    <%= link_to "Delete", message_path(message), :method => "delete", data: {confirm: "Are you sure?"} %>
+    <%= link_to "Delete", message_path(message), id: "delete", :method => "delete", data: {confirm: "Are you sure?"} %>
   </li>
   <% end %>
 </ul>

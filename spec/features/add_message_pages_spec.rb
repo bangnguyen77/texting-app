@@ -3,13 +3,13 @@ require 'rails_helper'
 describe 'the add a message process', :vcr => true do
   it "adds a message" do
     contact = FactoryGirl.create(:contact)
-    visit root_path
-    click_link "See all messages"
-    click_link "New message"
-    check("Test Name")
-    fill_in "From", :with => "503222"
-    fill_in "Body", :with => "Something"
+    message = FactoryGirl.create(:message)
+    visit new_message_path
+    check(contact.name)
+    fill_in "From", :with => message.from
+    fill_in "Body", :with => message.body
     click_on "Create"
-    expect(page).to have_content("Something")
+    save_and_open_page
+    expect(page).to have_content(message.body)
   end
 end
